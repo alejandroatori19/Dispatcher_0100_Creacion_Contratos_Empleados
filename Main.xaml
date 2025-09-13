@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_ConfigFilePath="C:\Users\plrecuero\Desktop\Framework Stemdo\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_ConfigFilePath="C:\Users\agonzalez\Documents\GitHub\Creacion_Contratos_Empleados\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Step code to identify the step&#xA;Example: 0100" Name="in_ConfigFilePath" Type="InArgument(x:String)" />
   </x:Members>
@@ -217,7 +217,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="***IMPORTANTE***&#xA;Modifique los argumentos de entrada.&#xA;&#xA;Cierre todas las aplicaciones definidas en el archivo de configuración.&#xA;Verifique si el proceso se ejecuta dentro de los intervalos de tiempo permitidos.&#xA;Verifique si el proceso puede ejecutarse según el valor del recurso.&#xA;Ejecute el flujo de trabajo Dispatcher.xaml." DisplayName="Sequence - Main - Init Framework Dispatcher" sap:VirtualizedContainerService.HintSize="1582,11973" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="***IMPORTANTE***&#xA;Modifique los argumentos de entrada.&#xA;&#xA;Cierre todas las aplicaciones definidas en el archivo de configuración.&#xA;Verifique si el proceso se ejecuta dentro de los intervalos de tiempo permitidos.&#xA;Verifique si el proceso puede ejecutarse según el valor del recurso.&#xA;Ejecute el flujo de trabajo Dispatcher.xaml." DisplayName="Sequence - Main - Init Framework Dispatcher" sap:VirtualizedContainerService.HintSize="1329.6,11972.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, string)]" Name="dic_HojaConfig" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" Name="Config" />
@@ -238,7 +238,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Leerá el archivo de configuración. Iniciara la ejecucion del Dispatcher.&#xA;Cerrará todas las aplicaciones definidas en el archivo de configuración." DisplayName="Sequence - Inicializacion" sap:VirtualizedContainerService.HintSize="1330,4167" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Leerá el archivo de configuración. Iniciara la ejecucion del Dispatcher.&#xA;Cerrará todas las aplicaciones definidas en el archivo de configuración." DisplayName="Sequence - Inicializacion" sap:VirtualizedContainerService.HintSize="1329.6,4165.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -246,8 +246,8 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciamos Main&quot;]" />
-      <ui:LogMessage DisplayName="Log Message screen resolution" sap:VirtualizedContainerService.HintSize="574,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;La resolución de pantalla principal es: &quot;+Screen.PrimaryScreen.Bounds.Width.ToString+&quot; x &quot;+ Screen.PrimaryScreen.Bounds.Height.ToString]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciamos Main&quot;]" />
+      <ui:LogMessage DisplayName="Log Message screen resolution" sap:VirtualizedContainerService.HintSize="574.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;La resolución de pantalla principal es: &quot;+Screen.PrimaryScreen.Bounds.Width.ToString+&quot; x &quot;+ Screen.PrimaryScreen.Bounds.Height.ToString]" />
       <Sequence DisplayName="Init All Settings - Read Config File" sap:VirtualizedContainerService.HintSize="574,1868" sap2010:WorkflowViewState.IdRef="Sequence_80">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
