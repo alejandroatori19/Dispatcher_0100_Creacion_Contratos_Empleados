@@ -1,1 +1,1 @@
-{"Workflows":[{"FilePath":"Main.xaml","Activities":[]},{"FilePath":"Framework/Dispatcher.xaml","Activities":[]},{"FilePath":"Tests/_test.xaml","Activities":[]},{"FilePath":"Modules/UploadTransactionItem.xaml","Activities":[]},{"FilePath":"Modules/InsertRecord.xaml","Activities":[]}]}
+{"Workflows":[{"FilePath":"Main.xaml","Activities":[]},{"FilePath":"Framework/Dispatcher.xaml","Activities":[]},{"FilePath":"Modules/Getting_And_Preparing_Enviroment.xaml","Activities":null}]}
