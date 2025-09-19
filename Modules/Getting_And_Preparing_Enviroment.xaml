@@ -55,6 +55,14 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -121,9 +129,10 @@
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Initializing_Things" sap:VirtualizedContainerService.HintSize="1459,4063" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Initializing_Things" sap:VirtualizedContainerService.HintSize="1310,4493" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -198,40 +207,82 @@
       </ui:CreateDirectory>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Se han creado con exito las carpetas de Data del Dispatcher y Process y están vacias&quot;]" />
     </Sequence>
-    <Sequence DisplayName="Resetea la carpeta de resultados" sap:VirtualizedContainerService.HintSize="522,494" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Resetea la carpeta de resultados" sap:VirtualizedContainerService.HintSize="522,709" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:DeleteFolderX DisplayName="Delete Folder (Borra Contratos)" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="DeleteFolderX_3" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Contratos&quot;]" Recursive="True" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder (Crea Contratos)" sap:VirtualizedContainerService.HintSize="416,123" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Contratos&quot;]">
+      <If Condition="[System.IO.Directory.Exists(in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Contratos&quot;)]" sap:VirtualizedContainerService.HintSize="452,328" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeleteFolderX DisplayName="Delete Folder (Borra Contratos)" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="DeleteFolderX_3" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Contratos&quot;]" Recursive="True" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder (Crea Contratos)" sap:VirtualizedContainerService.HintSize="452,123" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Contratos&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CreateDirectory>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Se ha creado con exito la carpeta de Contratos y están vacias&quot;]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Se ha creado con exito la carpeta de Contratos y están vacias&quot;]" />
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Guarda los datos referentes a archivos temporales, principalmente es el archivo de monitorización" DisplayName="Resetea la carpeta de archivos temporales" sap:VirtualizedContainerService.HintSize="522,539" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence sap2010:Annotation.AnnotationText="Guarda los datos referentes a archivos temporales, principalmente es el archivo de monitorización" DisplayName="Resetea la carpeta de archivos temporales" sap:VirtualizedContainerService.HintSize="522,754" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:DeleteFolderX DisplayName="Delete Folder (Borra Temporal_Files)" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="DeleteFolderX_4" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Temporal_Files&quot;]" Recursive="True" />
-      <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder (Crea Temporal_Files)" sap:VirtualizedContainerService.HintSize="416,123" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Temporal_Files&quot;]">
+      <If Condition="[System.IO.Directory.Exists(in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Temporal_Files&quot;)]" sap:VirtualizedContainerService.HintSize="452,328" sap2010:WorkflowViewState.IdRef="If_5">
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeleteFolderX DisplayName="Delete Folder (Borra Temporal_Files)" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="DeleteFolderX_4" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Temporal_Files&quot;]" Recursive="True" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder (Crea Temporal_Files)" sap:VirtualizedContainerService.HintSize="452,123" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Temporal_Files&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CreateDirectory>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Se ha creado con exito la carpeta de archivos temporales (Temporal_Files) y están vacias&quot;]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Se ha creado con exito la carpeta de archivos temporales (Temporal_Files) y están vacias&quot;]" />
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Descarga la plantilla y los datos desde el correo.&#xA;Renombra ambos para usar una nomenclatura estandar" DisplayName="Extraccion de los datos base desde un correo" sap:VirtualizedContainerService.HintSize="522,1847" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence sap2010:Annotation.AnnotationText="Descarga la plantilla y los datos desde el correo.&#xA;Renombra ambos para usar una nomenclatura estandar" DisplayName="Extraccion de los datos base desde un correo" sap:VirtualizedContainerService.HintSize="522,1847" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,7 +322,7 @@
                     <uga:DownloadAttachmentsConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" NewResult="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Replace" ConnectionId="e86ecfef-ed4e-4146-82d5-72df3bb603fa" DestinationPath="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Process_0200_Creacion_Contratos_Empleados\Data\&quot;]" DisplayName="Download Email Attachments" Email="[email]" ExcludeInlineAttachments="True" FilterByFileNames="*.pdf" sap:VirtualizedContainerService.HintSize="416,237" sap2010:WorkflowViewState.IdRef="DownloadAttachmentsConnections_1" SearchMode="UseSimple" UseConnectionService="True" />
                     <ui:RenameFileX FileResource="{x:Null}" OutputFileResource="{x:Null}" DisplayName="Rename File" FilePath="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Dispatcher_0100_Creacion_Contratos_Empleados\Data\&quot; + email.AttachmentsNamesList.FirstOrDefault(Function(att) att.ToLower.EndsWith(&quot;.xlsx&quot;))]" sap:VirtualizedContainerService.HintSize="416,223" sap2010:WorkflowViewState.IdRef="RenameFileX_3" KeepExtension="True" NewName="Data" />
                     <ui:RenameFileX FileResource="{x:Null}" OutputFileResource="{x:Null}" DisplayName="Rename File" FilePath="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Process_0200_Creacion_Contratos_Empleados\Data\&quot; + email.AttachmentsNamesList.FirstOrDefault(Function(att) att.ToLower.EndsWith(&quot;.pdf&quot;))]" sap:VirtualizedContainerService.HintSize="416,223" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="True" NewName="Plantilla" />
-                    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B18" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,139" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="SendReport" Text="[email.From.Address.ToString]" WorkbookPath="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Config.xlsx&quot;]" />
+                    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B18" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,139" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="SendReport" Text="[email.Subject.Split(&quot;-&quot;)(1).ToString.Trim]" WorkbookPath="[in_config(&quot;Settings&quot;)(&quot;RutaProceso&quot;).ToString + &quot;Config.xlsx&quot;]" />
                   </Sequence>
                 </If.Then>
                 <If.Else>
@@ -291,7 +342,7 @@
         <uga:ForEachEmailConnections.Filter>
           <ugagf:MailFilterCollection LogicalOperator="And">
             <ugagf:MailFilterCollection.Filters>
-              <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="Creacion contrato empleados" />
+              <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="Generación de contratos" />
             </ugagf:MailFilterCollection.Filters>
           </ugagf:MailFilterCollection>
         </uga:ForEachEmailConnections.Filter>
