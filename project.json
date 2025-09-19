@@ -1,5 +1,5 @@
 {
-  "name": "Proyecto1_0100_Dispatcher",
+  "name": "Dispatcher_0100_Creacion_Contratos_Empleados",
   "projectId": "231aa4eb-2a8d-473d-997f-c0eae70d5286",
   "description": "Framework Step to queue TransactionItems in the defined queue.",
   "main": "Main.xaml",
@@ -39,7 +39,6 @@
     "projectProfile": "Developement",
     "outputType": "Process",
     "libraryOptions": {
-      "includeOriginalXaml": false,
       "privateWorkflows": []
     },
     "processOptions": {

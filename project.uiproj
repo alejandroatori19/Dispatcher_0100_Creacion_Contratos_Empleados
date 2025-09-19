@@ -1,0 +1,6 @@
+{
+  "Name": "Dispatcher_0100_Creacion_Contratos_Empleados",
+  "ProjectType": "Process",
+  "Description": "Framework Step to queue TransactionItems in the defined queue.",
+  "MainFile": "Main.xaml"
+}
