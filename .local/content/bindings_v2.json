@@ -1,0 +1,53 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "activityDisplayName": "For Each Email",
+      "activityId": "ForEachEmailConnections_1",
+      "resource": "Connection",
+      "key": "538f0b4a-ddc4-4172-a48f-2e6fd53ebbae",
+      "id": "Connection538f0b4a-ddc4-4172-a48f-2e6fd53ebbae538f0b4a-ddc4-4172-a48f-2e6fd53ebbaeFalse",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "538f0b4a-ddc4-4172-a48f-2e6fd53ebbae",
+          "isExpression": false,
+          "displayName": "Connection",
+          "description": "The connection to be used"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.2",
+        "Connector": "uipath-google-gmail",
+        "UseConnectionService": "True"
+      }
+    },
+    {
+      "activityDisplayName": "For Each Email",
+      "activityId": "ForEachEmailConnections_1",
+      "resource": "Property",
+      "key": "538f0b4a-ddc4-4172-a48f-2e6fd53ebbae.For Each Email",
+      "id": "Property538f0b4a-ddc4-4172-a48f-2e6fd53ebbae.For Each EmailInboxFalseINBOXFalse",
+      "value": {
+        "ParentFolders[*].Name": {
+          "defaultValue": "Inbox",
+          "isExpression": false,
+          "displayName": "Email folder or label",
+          "description": "The folder or label to get email messages from"
+        },
+        "ParentFolders[*].ID": {
+          "defaultValue": "INBOX",
+          "isExpression": false,
+          "displayName": "Email folder or label",
+          "description": "The folder or label to get email messages from"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.1",
+        "ActivityName": "For Each Email",
+        "ObjectName": "NormalizedMessage",
+        "DisplayLabel": "ParentFolders[*].Name",
+        "ParentResourceKey": "Connection.538f0b4a-ddc4-4172-a48f-2e6fd53ebbae"
+      }
+    }
+  ]
+}
